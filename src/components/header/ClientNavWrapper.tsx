@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
+import HomeNavbar from "./HomeNavbar";
 
 export default function ClientNavWrapper({
   children,
@@ -16,7 +17,7 @@ export default function ClientNavWrapper({
 
   return (
     <>
-      {!isHome && <Navbar />}
+      {isHome ? <HomeNavbar /> : <Navbar />}
       {children}
     </>
   );
