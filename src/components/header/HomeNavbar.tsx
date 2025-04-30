@@ -10,14 +10,14 @@ const HomeNavbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Solutions", path: "/solutions" },
     { name: "Services", path: "/services" },
     { name: "Blogs", path: "/blog" },
     { name: "About Us", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
+    { name: "Contact Us", path: "/contact-us" },
   ];
 
   // Handle scroll effect for HomeNavbar background
@@ -40,9 +40,11 @@ const HomeNavbar = () => {
   }, [pathname]);
 
   return (
-    <div 
+    <div
       className={`fixed z-50 w-full transition-all duration-300 ${
-        scrolled || isMenuOpen ? "bg-[#0B0146]/95 backdrop-blur-lg" : "bg-transparent backdrop-blur-2xl"
+        scrolled || isMenuOpen
+          ? "bg-[#0B0146]/95 backdrop-blur-lg"
+          : "bg-transparent backdrop-blur-2xl"
       }`}
     >
       <div className="h-18 w-full flex items-center justify-between px-4 md:px-6 lg:px-10">
@@ -67,7 +69,7 @@ const HomeNavbar = () => {
             <ul className="flex text-white text-md justify-evenly gap-4 lg:gap-10">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <Link 
+                  <Link
                     href={item.path}
                     className={`px-3 py-2 rounded-2xl transition-colors duration-300  ${
                       pathname === item.path
@@ -91,12 +93,12 @@ const HomeNavbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-white p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24}/>}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -107,7 +109,7 @@ const HomeNavbar = () => {
             <ul className="flex flex-col text-white space-y-4">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <Link 
+                  <Link
                     href={item.path}
                     className={`block px-3 py-2 rounded-xl transition-colors duration-300 ${
                       pathname === item.path

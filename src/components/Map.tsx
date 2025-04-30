@@ -2,13 +2,10 @@
 
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
-export default function Map({
-  center,
-  zoom,
-}: {
-  center: { lat: number; lng: number };
-  zoom: number;
-}) {
+const center = { lat: 28.4595, lng: 77.0266 };
+// Example: Gurgaon location
+
+export default function Map() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
   });
@@ -18,9 +15,8 @@ export default function Map({
   return (
     <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-md">
       <GoogleMap
-        zoom={zoom}
+        zoom={12}
         center={center}
-        mapContainerClassName="w-full h-full"
         mapContainerStyle={{ width: "100%", height: "100%" }}
       >
         <Marker position={center} />

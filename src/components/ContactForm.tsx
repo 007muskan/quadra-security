@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -87,7 +88,7 @@ export default function ContactForm() {
           </p>
 
           <div className="flex items-start gap-3 mt-6">
-            <div className="bg-blue-500 p-2 rounded-md">
+            <div className="bg-[#418DDC] p-2 rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-white"
@@ -120,7 +121,7 @@ export default function ContactForm() {
           </div>
 
           <div className="flex items-start gap-3 mt-4">
-            <div className="bg-blue-500 p-2 rounded-md">
+            <div className="bg-[#418DDC] p-2 rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-white"
@@ -145,7 +146,7 @@ export default function ContactForm() {
           </div>
 
           <div className="flex items-start gap-3 mt-4">
-            <div className="bg-blue-500 p-2 rounded-md">
+            <div className="bg-[#418DDC] p-2 rounded-md">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-white"
@@ -171,75 +172,36 @@ export default function ContactForm() {
             <h2 className="font-bold text-lg uppercase mb-4 text-black">
               SOCIAL LINKS
             </h2>
-            <div className="flex gap-4">
-              <a href="#" className="block">
-                <div className="border border-gray-300 p-2 rounded-full bg-[#418DDC]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <rect
-                      x="2"
-                      y="2"
-                      width="20"
-                      height="20"
-                      rx="5"
-                      ry="5"
-                    ></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
+            <div className="flex gap-4 ">
+              <a href="#" className="block text-center">
+                <div>
+                  <img
+                    src="/instagram (2).png"
+                    alt="Instagram"
+                    className="h-10 w-10 mx-auto"
+                  />
                 </div>
-                <span className="text-sm block mt-1 text-white">Instagram</span>
+                <span className="text-sm block mt-1 text-black">Instagram</span>
               </a>
 
-              <a href="#" className="block">
-                <div className="border border-gray-300 p-2 rounded-md">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
-                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                  </svg>
+              <a href="#" className="block text-center">
+                <div>
+                  <img
+                    src="/youtube (2).png"
+                    alt="YouTube"
+                    className="h-10 w-10 mx-auto"
+                  />
                 </div>
-                <span className="text-sm block mt-1">Youtube</span>
+                <span className="text-sm block mt-1">YouTube</span>
               </a>
 
-              <a href="#" className="block">
-                <div className="border border-gray-300 p-2 rounded-md">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
+              <a href="#" className="block text-center">
+                <div>
+                  <img
+                    src="/linkedin (2).png"
+                    alt="LinkedIn"
+                    className="h-10 w-10 mx-auto"
+                  />
                 </div>
                 <span className="text-sm block mt-1">LinkedIn</span>
               </a>
@@ -431,32 +393,6 @@ export default function ContactForm() {
           )}
 
           {/* Map */}
-          <div className="mt-8 rounded-lg overflow-hidden border-4 border-white">
-            <div className="bg-gray-200 h-32 relative">
-              <img
-                src="/api/placeholder/400/320"
-                alt="Map location"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <svg
-                    className="h-10 w-10 text-red-600"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="bg-blue-900 p-4">
-              <h3 className="font-medium text-lg">Quadra Security</h3>
-              <p className="text-sm text-gray-300">
-                Orion Tech Park, Sector 63, Noida
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

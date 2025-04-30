@@ -45,10 +45,13 @@ export default function Navbar() {
         <Link href="/solutions" className={getLinkClass("/solutions")}>
           Solutions
         </Link>
+        <Link href="/services" className={getLinkClass("/services")}>
+          Services
+        </Link>
         <Link href="/blog" className={getLinkClass("/blog")}>
           Blog
         </Link>
-        <Link href="/contact" className={getLinkClass("/contact")}>
+        <Link href="/contact-us" className={getLinkClass("/contact-us")}>
           Contact Us
         </Link>
       </div>
