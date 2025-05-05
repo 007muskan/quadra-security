@@ -20,7 +20,13 @@ const testimonials = [
     name: "XXXXX SINGH",
     description:
       "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-    imageSrc: "/testimonial_img.png",
+    imageSrc: "/home/testimonial_img.png",
+  },
+  {
+    name: "XXXXX SINGH",
+    description:
+      "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
+      imageSrc: "/home/testimonial_img.png",
   },
   {
     name: "XXXXX SINGH",
@@ -32,25 +38,19 @@ const testimonials = [
     name: "XXXXX SINGH",
     description:
       "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-      imageSrc: "/testimonial_img.png",
+      imageSrc: "/home/testimonial_img.png",
   },
   {
     name: "XXXXX SINGH",
     description:
       "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-      imageSrc: "/testimonial_img.png",
+      imageSrc: "/home/testimonial_img.png",
   },
   {
     name: "XXXXX SINGH",
     description:
       "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-      imageSrc: "/testimonial_img.png",
-  },
-  {
-    name: "XXXXX SINGH",
-    description:
-      "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-      imageSrc: "/testimonial_img.png",
+      imageSrc: "/home/testimonial_img.png",
   },
 ];
 

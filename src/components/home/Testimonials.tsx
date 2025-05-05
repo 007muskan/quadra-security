@@ -2,26 +2,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 import {  TestimonialsCarousel } from "./TestimonialsCarousel";
 import { Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "XXXXX SINGH",
-    message:
-      "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-    image: "/client.jpg", // Replace with actual image path
-  },
-  {
-    name: "XXXXX SINGH",
-    message:
-      "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-    image: "/client.jpg",
-  },
-  {
-    name: "XXXXX SINGH",
-    message:
-      "The team was at my DLF Phase 2 home within hours. Setup was quick, and now I can monitor my house from anywhere!",
-    image: "/client.jpg",
-  },
-];
 
 export default function Testimonials() {
   return (

@@ -61,7 +61,7 @@ export default function Home() {
       </section>
       <section
         className=" text-white py-10 px-4 flex justify-start items-center h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/bg_img.png')" }} // replace with your actual image path
+        style={{ backgroundImage: "url('/home/bg_img.png')" }} // replace with your actual image path
       >
         <Testimonials />
       </section>
