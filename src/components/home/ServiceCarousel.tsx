@@ -71,7 +71,7 @@ const ServiceCarousel = () => {
     // Set up autoplay
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [api, isHovered]);
@@ -88,7 +88,7 @@ const ServiceCarousel = () => {
 
   return (
     <div 
-      className="relative px-6 py-10  rounded-xl"
+      className="relative px-6 py-10 w-[300px] md:w-auto rounded-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -110,8 +110,8 @@ const ServiceCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="bg-[#211a7d] hover:bg-[#2d26a0] text-white border-none" />
-        <CarouselNext className="bg-[#211a7d] hover:bg-[#2d26a0] text-white border-none" />
+        <CarouselPrevious className="bg-[#211a7d] hover:bg-[#2d26a0] h-6 w-6 m-3 text-white border-none" />
+        <CarouselNext className="bg-[#211a7d] hover:bg-[#2d26a0]  m-3 h-6 w-6 text-white border-none" />
       </Carousel>
 
       {/* Dot indicators */}

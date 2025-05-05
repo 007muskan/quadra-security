@@ -16,7 +16,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   return (
     <div className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-md w-full max-w-[250px]">
       {/* Top image */}
-      <div className="relative w-full h-36">
+      <div className="relative w-full md:h-36 h-24">
         {/* reduced height */}
         <img
           src={imageSrc}

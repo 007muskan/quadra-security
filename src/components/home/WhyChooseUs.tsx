@@ -1,34 +1,33 @@
+'use client';
+
 import { Gem, Clock, Smartphone, Users } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const WhyChooseUs = () => {
-  const features = [
-    {
-      icon: <Gem className="text-yellow-400 w-8 h-8" />,
-      text: "Premium Quality Equipment",
-    },
-    {
-      icon: <Clock className="text-yellow-400 w-8 h-8" />,
-      text: "Quick & Easy Installation",
-    },
-    {
-      icon: <Smartphone className="text-yellow-400 w-8 h-8" />,
-      text: "Remote Monitoring Access",
-    },
-    {
-      icon: <Users className="text-yellow-400 w-8 h-8" />,
-      text: "Customer-Centric Support",
-    },
-  ];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <div className="relative w-screen items-center flex flex-col justify-center gap-y-8">
+    <motion.div
+      ref={ref}
+      variants={fadeInVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-screen items-center flex flex-col md:justify-center justify-center gap-y-8"
+    >
       {/* Top Title */}
       <div className="flex items-center space-x-4 mb-6">
         <div className="w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-l-[20px] border-l-purple-500" />
-        <h1 className="text-white text-3xl font-semibold">
-          <p style={{ wordSpacing: "5px" }} className="">
+        <h1 className="text-white md:text-3xl text-2xl font-semibold">
+          <p style={{ wordSpacing: "5px" }}>
             The Best in <span className="text-yellow-500">GURGAON</span>
           </p>
         </h1>
@@ -37,18 +36,18 @@ const WhyChooseUs = () => {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Left Side: Image */}
-        <div className="relative">
-          <div className="w-[500px] h-[500px] bg-transparent rounded-full flex justify-center z-20 items-center relative">
+        <div className="relative flex flex-col items-center justify-center">
+          <div className="w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-transparent rounded-full flex justify-center z-20 items-center relative">
             <Image
-              src="/home/why-choose-us.png" // <-- your camera+mobile combined image (save it)
+              src="/home/why-choose-us.png"
               alt="Camera and Mobile"
               layout="fill"
               objectFit="cover"
-              className="rounded-full "
+              className="rounded-full"
             />
           </div>
           {/* Circle Text */}
-          <div className="absolute top-1/2 left-0 z-40 transform -translate-y-1/2 -translate-x-1/3 bg-white text-[#180648] w-32 h-32 flex justify-center items-center rounded-full text-center font-semibold">
+          <div className="absolute md:top-1/2 md:left-0 z-40 transform md:-translate-y-1/2 md:-translate-x-1/3 md:bg-white bg-black/50 md:text-[#180648] text-white w-32 h-32 flex justify-center items-center rounded-full text-center font-semibold">
             WHY
             <br />
             CHOOSE
@@ -56,54 +55,39 @@ const WhyChooseUs = () => {
             US
           </div>
         </div>
-        {/* Right Side: Features */}
-        <div className="flex flex-col space-y-6 ">
-          {/* Feature 1 */}
-          <div className="flex items-center gap-4 z-40 relative right-[150px]">
-            <div className="bg-white rounded-full w-20 h-20 flex justify-center items-center">
-              <Gem className="text-yellow-400 w-8 h-8" />
-            </div>
-            <hr className="w-24"/>
-            <span className="text-white text-lg font-medium">
-              Premium Quality Equipment
-            </span>
-          </div>
 
-          {/* Feature 2 */}
-          <div className="flex items-center gap-4 z-40 relative right-[100px]">
-            <div className="bg-white rounded-full  w-20 h-20 flex justify-center items-center">
-              <Clock className="text-yellow-400 w-8 h-8" />
-            </div>
-            <hr className="w-24"/>
-            <span className="text-white text-lg font-medium">
-              Quick & Easy Installation
-            </span>
-          </div>
-
-          {/* Feature 3 */}
-          <div className="flex items-center gap-4 z-40 relative right-[100px]">
-            <div className="bg-white rounded-full  w-20 h-20 flex justify-center items-center">
-              <Smartphone className="text-yellow-400 w-8 h-8" />
-            </div>
-            <hr className="w-24"/>
-            <span className="text-white text-lg font-medium">
-              Remote Monitoring Access
-            </span>
-          </div>
-
-          {/* Feature 4 */}
-          <div className="flex items-center gap-4 z-40 relative right-[150px]">
-            <div className="bg-white rounded-full w-20 h-20 flex justify-center items-center">
-              <Users className="text-yellow-400 w-8 h-8" />
-            </div>
-            <hr className="w-24"/>
-            <span className="text-white text-lg font-medium">
-              Customer-Centric Support
-            </span>
-          </div>
-        </div>
+      {/* Right Side: Features */}
+<div className="flex flex-col md:space-y-6 space-y-4">
+  {[
+    { icon: <Gem />, text: "Premium Quality Equipment", shift: 120 },
+    { icon: <Clock />, text: "Quick & Easy Installation", shift: 70 },
+    { icon: <Smartphone />, text: "Remote Monitoring Access", shift: 70 },
+    { icon: <Users />, text: "Customer-Centric Support", shift: 120 },
+  ].map((feature, index) => (
+    <motion.div
+      key={feature.text}
+      className="flex items-center gap-4 z-40 relative"
+      style={{ right: feature.shift }}
+      variants={fadeInVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ duration: 0.4 + index * 0.2, delay: 0.2 * index }}
+    >
+      <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex justify-center items-center">
+        {React.cloneElement(feature.icon, {
+          className: "text-yellow-400 md:w-6 md:h-6 w-5 h-5",
+        })}
       </div>
-    </div>
+      <div className="hidden md:block w-24 h-[2px] bg-white" />
+      <span className="text-white text-sm md:text-lg font-medium">
+        {feature.text}
+      </span>
+    </motion.div>
+  ))}
+</div>
+
+      </div>
+    </motion.div>
   );
 };
 

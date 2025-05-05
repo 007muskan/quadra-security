@@ -15,8 +15,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   features,
 }) => {
   return (
-    <div className="bg-[#06044E] rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg min-w-[280px] max-w-[320px]">
-      <div className="w-full h-[180px] relative">
+    <div className="bg-[#06044E] rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg w-[250px] md:w-auto">
+      <div className="w-full md:h-[180px] h-36  relative">
         <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
         <div className="h-[4px] bg-yellow-400" />
       </div>

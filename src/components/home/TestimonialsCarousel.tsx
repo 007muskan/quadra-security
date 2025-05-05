@@ -80,7 +80,7 @@ export function TestimonialsCarousel() {
   }, [api]);
 
   return (
-    <div className="flex flex-col items-center max-w-2xl mx-auto">
+    <div className="flex flex-col items-center md:max-w-2xl md:w-auto w-56 mx-auto">
       <Carousel
         setApi={setApi}
         plugins={[autoplayPlugin.current]}
@@ -99,8 +99,8 @@ export function TestimonialsCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="bg-purple-600 hover:bg-purple-700 text-white" />
-        <CarouselNext className="bg-purple-600 hover:bg-purple-700 text-white" />
+        <CarouselPrevious className="bg-purple-600 h-6 w-6 m-3 hover:bg-purple-700 text-white" />
+        <CarouselNext className="bg-purple-600 h-6 w-6 m-3 hover:bg-purple-700 text-white" />
       </Carousel>
 
       {/* Dot indicators */}
@@ -109,7 +109,7 @@ export function TestimonialsCarousel() {
           <button
             key={idx}
             onClick={() => api?.scrollTo(idx)}
-            className={`w-3 h-3 rounded-full transition-colors ${
+            className={`md:w-3 md:h-3 w-2 h-2 rounded-full transition-colors ${
               idx === current ? "bg-purple-600" : "bg-gray-300"
             }`}
             aria-label={`Go to slide ${idx + 1}`}

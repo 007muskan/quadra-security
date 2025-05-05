@@ -24,11 +24,11 @@ export default function Navbar() {
         <Link href="/">
           <div className="flex items-center cursor-pointer">
             <Image
-              src="/logo.png"
+              src="/logo_color.svg"
               alt="Quadra Security"
-              width={80}
-              height={80}
-              className="w-[110px] h-auto"
+              width={100}
+              height={100}
+              className="w-[200px] h-auto"
             />
           </div>
         </Link>
