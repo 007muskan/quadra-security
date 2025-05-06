@@ -2,12 +2,25 @@
 
 import { Gem, Clock, Smartphone, Users } from "lucide-react";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
+
+// Hook to detect mobile view
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return isMobile;
+};
 
 const WhyChooseUs = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -56,36 +69,63 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-      {/* Right Side: Features */}
-<div className="flex flex-col md:space-y-6 space-y-4">
-  {[
-    { icon: <Gem />, text: "Premium Quality Equipment", shift: 120 },
-    { icon: <Clock />, text: "Quick & Easy Installation", shift: 70 },
-    { icon: <Smartphone />, text: "Remote Monitoring Access", shift: 70 },
-    { icon: <Users />, text: "Customer-Centric Support", shift: 120 },
-  ].map((feature, index) => (
-    <motion.div
-      key={feature.text}
-      className="flex items-center gap-4 z-40 relative"
-      style={{ right: feature.shift }}
-      variants={fadeInVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      transition={{ duration: 0.4 + index * 0.2, delay: 0.2 * index }}
-    >
-      <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex justify-center items-center">
-        {React.cloneElement(feature.icon, {
-          className: "text-yellow-400 md:w-6 md:h-6 w-5 h-5",
-        })}
-      </div>
-      <div className="hidden md:block w-24 h-[2px] bg-white" />
-      <span className="text-white text-sm md:text-lg font-medium">
-        {feature.text}
-      </span>
-    </motion.div>
-  ))}
-</div>
-
+        {/* Right Side: Features */}
+        <div className="md:hidden flex flex-col md:space-y-6 space-y-4">
+          {[
+            { icon: <Gem />, text: "Premium Quality Equipment", shift: 0 },
+            { icon: <Clock />, text: "Quick & Easy Installation", shift: 0 },
+            { icon: <Smartphone />, text: "Remote Monitoring Access", shift: 0 },
+            { icon: <Users />, text: "Customer-Centric Support", shift: 0 },
+          ].map((feature, index) => (
+            <motion.div
+              key={feature.text}
+              className="flex items-center gap-4 z-40 relative"
+              style={isMobile ? { right: feature.shift } : {}}
+              variants={fadeInVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              transition={{ duration: 0.4 + index * 0.2, delay: 0.2 * index }}
+            >
+              <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex justify-center items-center">
+                {React.cloneElement(feature.icon, {
+                  className: "text-yellow-400 md:w-6 md:h-6 w-5 h-5",
+                })}
+              </div>
+              <div className="hidden md:block w-24 h-[2px] bg-white" />
+              <span className="text-white text-sm md:text-lg font-medium">
+                {feature.text}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+        <div className="hidden md:flex flex-col md:space-y-6 space-y-4">
+          {[
+            { icon: <Gem />, text: "Premium Quality Equipment", shift: 120 },
+            { icon: <Clock />, text: "Quick & Easy Installation", shift: 70 },
+            { icon: <Smartphone />, text: "Remote Monitoring Access", shift: 70 },
+            { icon: <Users />, text: "Customer-Centric Support", shift: 120 },
+          ].map((feature, index) => (
+            <motion.div
+              key={feature.text}
+              className="flex items-center gap-4 z-40 relative"
+              style={isMobile ? { right: feature.shift } : {}}
+              variants={fadeInVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              transition={{ duration: 0.4 + index * 0.2, delay: 0.2 * index }}
+            >
+              <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex justify-center items-center">
+                {React.cloneElement(feature.icon, {
+                  className: "text-yellow-400 md:w-6 md:h-6 w-5 h-5",
+                })}
+              </div>
+              <div className="hidden md:block w-24 h-[2px] bg-white" />
+              <span className="text-white text-sm md:text-lg font-medium">
+                {feature.text}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

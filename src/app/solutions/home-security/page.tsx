@@ -21,7 +21,7 @@ const SolutionsPage = () => {
     <div className="bg-white font-[family-name:var(--font-urbanist)] text-gray-800 min-h-screen">
       {/* Header with background image */}
       <motion.div
-        className="w-full h-32 lg:h-48 flex bg-cover bg-center bg-no-repeat  items-center justify-center"
+        className="w-full h-48 lg:h-72 flex bg-cover bg-center bg-no-repeat  items-center justify-center"
         style={{ backgroundImage: "url('/solutions/bg_img.png')" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -29,7 +29,7 @@ const SolutionsPage = () => {
       >
         <div className="bg-blue-500/35 w-full h-full flex justify-center items-center">
           <motion.h2
-            className="text-center text-white text-3xl font-semibold mb-10"
+            className="text-center text-white text-3xl font-bold mt-3 md:mt-5"
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}

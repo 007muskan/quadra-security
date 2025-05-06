@@ -21,7 +21,7 @@ export default function BlogClientComponent({
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gray-700 bg-opacity-80 bg-blend-overlay bg-[url('/hero-bg.png')] bg-cover bg-center py-16">
+      <div className="bg-gray-700 bg-opacity-80 bg-blend-overlay bg-[url('/hero-bg.png')] bg-cover bg-center py-24 md:py-32">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold text-white">Latest Posts</h1>
         </div>

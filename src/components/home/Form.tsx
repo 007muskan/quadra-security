@@ -34,7 +34,7 @@ export default function SiteVisitForm() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="hidden md:block bg-white/10 p-6 rounded-3xl shadow-2xl text-center md:w-[400px] text-white relative backdrop-blur-xl"
+      className="hidden md:block  bg-white/10 p-6 rounded-3xl shadow-2xl text-center md:w-[400px] text-white relative backdrop-blur-xl"
     >
       <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white rounded-full p-2 shadow-md">
         <LockIcon className="text-black" />
@@ -70,15 +70,15 @@ export default function SiteVisitForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="px-4 py-3 rounded-md bg-transparent border border-white text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 py-3 rounded-md  bg-transparent border border-white  focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         >
-          <option value="" disabled>
+          <option value=""  className="bg-white" disabled>
             SELECT SERVICE
           </option>
-          <option value="cctv">CCTV Installation</option>
-          <option value="alarm">Alarm Systems</option>
-          <option value="access">Access Control</option>
+          <option value="cctv" className="text-black">CCTV Installation</option>
+          <option value="alarm" className="text-black">Alarm Systems</option>
+          <option value="access" className="text-black">Access Control</option>
         </motion.select>
         <motion.select
           whileFocus={{ scale: 1.02 }}
@@ -91,10 +91,10 @@ export default function SiteVisitForm() {
           <option value="" disabled>
             SELECT AREA
           </option>
-          <option value="north">North Zone</option>
-          <option value="south">South Zone</option>
-          <option value="east">East Zone</option>
-          <option value="west">West Zone</option>
+          <option value="north" className="text-black">North Zone</option>
+          <option value="south" className="text-black">South Zone</option>
+          <option value="east" className="text-black">East Zone</option>
+          <option value="west" className="text-black">West Zone</option>
         </motion.select>
 
         <motion.button
