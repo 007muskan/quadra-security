@@ -73,11 +73,11 @@ const HomeNavbar = () => {
           {/* Mobile Menu Toggle */}
           
           <Image
-            src="/logo_color.svg"
+            src="/logo2_color.svg"
             width={24}
             height={24}
             alt="Quadra Security Logo"
-            className="md:w-[200px] w-[150px]"
+            className="md:w-[200px] w-[150px] mt-3"
           />
         </div>
 

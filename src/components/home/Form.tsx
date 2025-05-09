@@ -34,7 +34,7 @@ export default function SiteVisitForm() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="block  bg-white/10 md:p-6 p-4 md:rounded-3xl rounded-xl shadow-2xl text-center md:w-[400px] w-4/5 h-[350px] md:h-auto text-white relative backdrop-blur-xl"
+      className="block  bg-white/10 md:p-6 p-4 md:rounded-3xl rounded-2xl shadow-2xl text-center md:w-[400px]  h-[300px] md:h-auto text-white relative backdrop-blur-xl"
     >
       <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white rounded-full p-2 shadow-md">
         <LockIcon className="text-black" />
@@ -52,7 +52,7 @@ export default function SiteVisitForm() {
           placeholder="NAME"
           value={formData.name}
           onChange={handleChange}
-          className="px-4 md:py-3 py-2 text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-1 text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         />
         <motion.input
@@ -62,7 +62,7 @@ export default function SiteVisitForm() {
           placeholder="PHONE NO"
           value={formData.phone}
           onChange={handleChange}
-          className="px-4 md:py-3 py-2  text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-1  text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         />
         <motion.select
@@ -70,7 +70,7 @@ export default function SiteVisitForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="px-4 md:py-3 py-2 text-sm  rounded-md  bg-transparent border border-white  focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-1 text-sm  rounded-md  bg-transparent border border-white  focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         >
           <option value=""  className="bg-white" disabled>
@@ -85,7 +85,7 @@ export default function SiteVisitForm() {
           name="area"
           value={formData.area}
           onChange={handleChange}
-          className="px-4 md:py-3 py-2 rounded-md text-sm  bg-transparent border border-white text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-1 rounded-md text-sm  bg-transparent border border-white text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         >
           <option value="" disabled>

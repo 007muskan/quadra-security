@@ -70,8 +70,8 @@ const HomeNavbar = () => {
 
         {/* Logo */}
         <div className="flex gap-1 items-center h-full w-full md:w-auto justify-center md:justify-start">
-          <Image src="/logo_white.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] hidden md:block" />
-          <Image src="/logo_color.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] md:hidden " />
+          <Image src="/logo2_white.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] hidden md:block mt-3" />
+          <Image src="/logo2_color.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] md:hidden mt-3 " />
           <div className="flex flex-col justify-start">
             {/* <p className="text-white font-semibold text-md">
               Quadra <span className="text-yellow-500">Security</span>
@@ -134,7 +134,7 @@ const HomeNavbar = () => {
       >
         {/* Close Button */}
         <div className="flex  w-full justify-center">
-        <Image src="/logo_color.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] md:hidden  " />
+        <Image src="/logo2_color.svg" width={24} height={24} alt="Quadra Security Logo" className="md:w-[200px] w-[150px] md:hidden  mt-3 " />
           <button onClick={() => setIsMenuOpen(false)} aria-label="Close menu">
             <X size={28} className="text-black fixed right-4 top-4" />
           </button>
