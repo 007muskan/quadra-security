@@ -34,17 +34,17 @@ export default function SiteVisitForm() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="hidden md:block  bg-white/10 p-6 rounded-3xl shadow-2xl text-center md:w-[400px] text-white relative backdrop-blur-xl"
+      className="block  bg-white/10 md:p-6 p-4 md:rounded-3xl rounded-xl shadow-2xl text-center md:w-[400px] w-4/5 h-[350px] md:h-auto text-white relative backdrop-blur-xl"
     >
       <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white rounded-full p-2 shadow-md">
         <LockIcon className="text-black" />
       </div>
 
-      <h2 className="font-urbanist font-semibold text-xl mb-6 mt-8">
+      <h2 className="font-urbanist font-semibold md:text-xl md:mb-6 mb-3 md:mt-8 mt-2">
         Schedule a Free <br /> Site Visit
       </h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col md:gap-4 gap-3">
         <motion.input
           whileFocus={{ scale: 1.02 }}
           type="text"
@@ -52,7 +52,7 @@ export default function SiteVisitForm() {
           placeholder="NAME"
           value={formData.name}
           onChange={handleChange}
-          className="px-4 py-3 rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-2 text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         />
         <motion.input
@@ -62,7 +62,7 @@ export default function SiteVisitForm() {
           placeholder="PHONE NO"
           value={formData.phone}
           onChange={handleChange}
-          className="px-4 py-3 rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-2  text-sm rounded-md bg-transparent border border-white placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         />
         <motion.select
@@ -70,7 +70,7 @@ export default function SiteVisitForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="px-4 py-3 rounded-md  bg-transparent border border-white  focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-2 text-sm  rounded-md  bg-transparent border border-white  focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         >
           <option value=""  className="bg-white" disabled>
@@ -85,7 +85,7 @@ export default function SiteVisitForm() {
           name="area"
           value={formData.area}
           onChange={handleChange}
-          className="px-4 py-3 rounded-md bg-transparent border border-white text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+          className="px-4 md:py-3 py-2 rounded-md text-sm  bg-transparent border border-white text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
           required
         >
           <option value="" disabled>
@@ -101,7 +101,7 @@ export default function SiteVisitForm() {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           type="submit"
-          className="mt-4 bg-[#01024E] hover:bg-[#01013a] transition-all text-white font-semibold py-3 rounded-md tracking-widest shadow-md"
+          className="md:mt-4 bg-[#01024E] text-sm  hover:bg-[#01013a] transition-all text-white font-semibold md:py-3 py-2 rounded-md tracking-widest shadow-md"
         >
           SUBMIT
         </motion.button>

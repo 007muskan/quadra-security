@@ -27,7 +27,10 @@ const HomeNavbar = () => {
     { name: "Industrial Security", path: "/solutions/industrial-security" },
     { name: "Real Estate Security", path: "/solutions/real-estate-security" },
     { name: "Retail Security", path: "/solutions/retail-security" },
-    { name: "Hospitality / Health Care Security", path: "/solutions/hospitality-security" },
+    {
+      name: "Hospitality / Health Care Security",
+      path: "/solutions/hospitality-security",
+    },
   ];
 
   useEffect(() => {
@@ -51,9 +54,24 @@ const HomeNavbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 bg-white shadow-sm`}>
+    <div
+      className={`fixed top-0 left-0 z-50 font-[family-name:var(--font-urbanist)] w-full transition-all duration-300 bg-white shadow-sm`}
+    >
       <div className="md:h-18 h-14 w-full flex items-center justify-between px-4 md:px-6 lg:px-10">
-        <div className="flex gap-1 items-center h-full">
+      <button
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              ""
+            ) : (
+              <Menu size={24} className="text-black fixed top-4" />
+            )}
+          </button>
+        <div className="flex gap-1 items-center h-full justify-center w-full md:w-auto md:justify-start">
+          {/* Mobile Menu Toggle */}
+          
           <Image
             src="/logo_color.svg"
             width={24}
@@ -93,36 +111,57 @@ const HomeNavbar = () => {
           </FancyButton2>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-black p-1"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+       
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white overflow-hidden"
-          >
-            <nav className="px-4 py-1">
-              <ul className="flex flex-col text-black space-y-2">
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setIsMenuOpen(false)}
+            />
+
+            {/* Slide-in menu */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="fixed top-0 right-0 w-full h-full bg-white z-50 shadow-lg p-4 flex flex-col"
+            >
+              {/* Close Button */}
+              <div className="flex  w-full justify-center">
+                <Image
+                  src="/logo_color.svg"
+                  width={24}
+                  height={24}
+                  alt="Quadra Security Logo"
+                  className="md:w-[200px] w-[150px] md:hidden  "
+                />
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X size={28} className="text-black fixed right-4 top-4" />
+                </button>
+              </div>
+
+              {/* Nav Items */}
+              <ul className="flex flex-col gap-4 mt-4">
                 {navItems.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.path}
-                      className={`block px-3 py-2 rounded-xl transition-colors duration-300 ${
+                      className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
                         pathname === item.path
-                          ? "bg-[#2b1ca1] text-white"
-                          : "hover:bg-gray-300 hover:text-black"
+                          ? "text-[#2b1ca0]"
+                          : "hover:bg-gray-200 text-black"
                       }`}
                     >
                       {item.name}
@@ -130,61 +169,58 @@ const HomeNavbar = () => {
                   </li>
                 ))}
 
-                {/* Mobile Solutions Toggle */}
+                {/* Solutions Toggle */}
                 <li>
                   <button
                     onClick={() => setShowMobileSolutions(!showMobileSolutions)}
-                    className="flex justify-between items-center w-full px-3 py-2 rounded-xl text-left bg-gray-100 hover:bg-gray-200"
+                    className="flex justify-between items-center w-full px-3 py-2 rounded-xl text-left  hover:bg-gray-200 text-black"
                   >
                     <span className="font-medium">Solutions</span>
-                    {showMobileSolutions ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                  </button>
-
-                  <AnimatePresence>
-                    {!showMobileSolutions && (
-                      <motion.ul
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-2 ml-4"
-                      >
-                        {solutionItems.map((item) => (
-                          <li key={item.name}>
-                            <Link
-                              href={item.path}
-                              className={`block px-3 py-2 rounded-lg transition-colors duration-300 text-sm ${
-                                pathname === item.path
-                                  ? "bg-yellow-500 text-black font-semibold"
-                                  : "hover:bg-white hover:text-black"
-                              }`}
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </motion.ul>
+                    {showMobileSolutions ? (
+                      <ChevronUp size={18} />
+                    ) : (
+                      <ChevronDown size={18} />
                     )}
-                  </AnimatePresence>
+                  </button>
+                  {showMobileSolutions && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="ml-4 mt-2 flex flex-col gap-2"
+                    >
+                      {solutionItems.map((item) => (
+                        <li key={item.name}>
+                          <Link
+                            href={item.path}
+                            className={`block px-3 py-2 rounded-md text-sm ${
+                              pathname === item.path
+                                ? " text-[#2e1dae] font-semibold"
+                                : "hover:bg-white text-black"
+                            }`}
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
                 </li>
 
                 {/* CTA Button */}
-                <li className="pt-2">
+                <li>
                   <FancyButton2 className="w-full py-2 px-3 text-sm rounded-sm">
                     Get your Quotation Today
                   </FancyButton2>
                 </li>
               </ul>
-            </nav>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-      {
-        isMenuOpen && (
-          <div className="w-screen h-screen backdrop-blur-lg">
-            </div>
-        )
-      }
+
+      {isMenuOpen && <div className="w-screen h-screen backdrop-blur-lg"></div>}
     </div>
   );
 };

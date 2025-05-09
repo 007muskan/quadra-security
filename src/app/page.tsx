@@ -21,12 +21,12 @@ export default function Home() {
     <div className="font-[family-name:var(--font-urbanist)]">
       {/* Section 1 */}
       <section className="h-screen bg-gradient-to-b from-[#0D053F] to-[#2917C9] md:flex justify-evenly items-center">
-        <div className="flex h-full md:h-auto flex-col justify-center md:justify-start md:space-y-10 space-y-6 py-20  md:py-0">
-          <div className="space-y-10">
+        <div className="flex md:h-auto flex-col justify-center md:justify-start md:space-y-10 space-y-4 py-20  md:py-0">
+          <div className="md:space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.1 }}
             >
               <h1 className="md:hidden text-white text-center text-xl font-semibold">
                 <TextGenerateEffect words={words1} className="p-2" />
@@ -65,19 +65,19 @@ export default function Home() {
             </FancyButton>
           </motion.div>
         </div>
-        <div className="">
+        <div className="w-full md:w-auto flex justify-center ">
           <SiteVisitForm />
         </div>
       </section>
       {/* Section 1 */}
       {/* section 2 */}
-      <section className="h-screen w-screen bg-gradient-to-b from-[#300571] to-[#151b7e] flex flex-col justify-center items-center">
+      <section className="h-screen w-screen bg-gradient-to-b from-[#2917C9] via-[#300571] to-[#151b7e] flex flex-col justify-center items-center ">
         <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.2, ease: "easeOut" }}
-         className="space-y-4 md:w-1/2 w-full">
+         className="space-y-4 md:w-1/2 w-full mt-56 md:mt-0">
           <h2 className="text-white md:text-4xl text-2xl text-center md:text-start">
             What we Offer
           </h2>
@@ -89,10 +89,10 @@ export default function Home() {
           <ServiceCarousel />
         </div>
       </section>
-      <section className="h-screen w-screen bg-gradient-to-b from-[#0D053F] to-[#2917C9] flex flex-col justify-evenly items-center">
+      <section className="h-screen w-screen bg-gradient-to-b from-[#151b7e] via-[#0D053F] to-[#2917C9] flex flex-col justify-evenly items-center">
         <BrandsCarousel />
       </section>
-      <section className="bg-gradient-to-r from-[#240D63] to-[#0B0146] w-screen text-white flex justify-center items-center h-screen">
+      <section className="bg-gradient-to-b from-[#2917C9] via-[#240D63] to-[#0B0146] w-screen text-white flex justify-center items-center h-screen">
         <WhyChooseUs />
       </section>
       <section
